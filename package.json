@@ -14,12 +14,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "first-extension-gitgreeting",
-        "title": "greeting"
+        "command": "first-extension.greeting",
+        "title": "Greet user"
       },
       {
-        "command": "first-extension-deleteSavedName",
-        "title": "deleteSavedName"
+        "command": "first-extension.deleteSavedName",
+        "title": "Delete UserName"
+      },
+      {
+        "command": "first-extension.changeName",
+        "title": "Change username"
       }
     ]
   },
