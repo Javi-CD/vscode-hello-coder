@@ -14,8 +14,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "first-extension-greeting",
-        "title": "Greeting"
+        "command": "first-extension-gitgreeting",
+        "title": "greeting"
+      },
+      {
+        "command": "first-extension-deleteSavedName",
+        "title": "deleteSavedName"
       }
     ]
   },

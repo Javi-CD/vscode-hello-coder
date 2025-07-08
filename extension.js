@@ -6,17 +6,46 @@ const vscode = require("vscode");
 
 const activate = (context) => {
   // Register a Command
-  let disposable = vscode.commands.registerCommand(
+  let commandGreet = vscode.commands.registerCommand(
     "first-extension-greeting",
-    () => {
-      // Show a Message Box
+    async () => {
+      // Show a message box to the user
+      const saved_name = context.globalState.get("userName");
+
+      // Check if the user has already provided their name
+      if (saved_name) {
+        vscode.window.showInformationMessage(`Hello Again ${saved_name}!`);
+      } else {
+        // If not, prompt for the name
+        const name = await vscode.window.showInputBox({
+          placeHolder: "Enter your name",
+          prompt: "Please enter your name to be greeted",
+        });
+
+        if (name) {
+          context.globalState.update("userName", name);
+          vscode.window.showInformationMessage(`Nice to meet you ${name}!`);
+        } else {
+          vscode.window.showErrorMessage(
+            "You must enter a name to be greeted!"
+          );
+        }
+      }
+    }
+  );
+
+  let commandDelete = vscode.commands.registerCommand(
+    "first-extension-deleteSavedName",
+    async () => {
+      // Delete the saved name from global state
+      context.globalState.update("userName", undefined);
       vscode.window.showInformationMessage(
-        "Hello World from your first VS Code extension!"
+        "Your name has been deleted from the global state."
       );
     }
   );
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(commandGreet, commandDelete);
 };
 
 const deactivate = () => {};
