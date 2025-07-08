@@ -1,29 +1,51 @@
 const vscode = require("vscode");
 
+const STORAGE_KEY = "userName";
+
 /**
  * @param {vscode.ExtensionContext} context
  */
 
 const activate = (context) => {
-  // Register a Command
+  /*******************************
+   * Execute At The Beginning *
+   *******************************/
+  const savedName = context.globalState.get(STORAGE_KEY);
+
+  if (savedName) {
+    vscode.window.showInformationMessage(`Welcome back, ${savedName}!`);
+  } else {
+    vscode.window
+      .showInformationMessage(
+        "No name saved. Do you want to add one now?",
+        "Add Name"
+      )
+      .then((selection) => {
+        if (selection === "Add Name") {
+          vscode.commands.executeCommand("first-extension.greeting");
+        }
+      });
+  }
+
+  /****************************
+   * Command: Greet *
+   ****************************/
   let commandGreet = vscode.commands.registerCommand(
     "first-extension.greeting",
     async () => {
-      // Show a message box to the user
-      const savedName = context.globalState.get("userName");
+      const savedName = context.globalState.get(STORAGE_KEY);
 
       // Check if the user has already provided their name
       if (savedName) {
         vscode.window.showInformationMessage(`Hello Again ${savedName}!`);
       } else {
-        // If not, prompt for the name
         const name = await vscode.window.showInputBox({
           placeHolder: "Enter your name",
           prompt: "Please enter your name to be greeted",
         });
 
         if (name) {
-          context.globalState.update("userName", name);
+          context.globalState.update(STORAGE_KEY, name);
           vscode.window.showInformationMessage(`Nice to meet you ${name}!`);
         } else {
           vscode.window.showErrorMessage(
@@ -34,10 +56,13 @@ const activate = (context) => {
     }
   );
 
+  /**************************************
+   * Command: Change Name *
+   **************************************/
   let commandChangeName = vscode.commands.registerCommand(
     "first-extension.changeName",
     async () => {
-      const currentName = context.globalState.get("userName");
+      const currentName = context.globalState.get(STORAGE_KEY);
 
       if (!currentName) {
         vscode.window.showWarningMessage("There are no names saved yet.");
@@ -51,7 +76,7 @@ const activate = (context) => {
       });
 
       if (newName) {
-        context.globalState.update("UserName", newName);
+        context.globalState.update(STORAGE_KEY, newName);
         vscode.window.showInformationMessage(
           `Name updated! I'll call you now. ${newName}.`
         );
@@ -61,11 +86,13 @@ const activate = (context) => {
     }
   );
 
+  /**********************************
+   * Command: Delete Name *
+   **********************************/
   let commandDelete = vscode.commands.registerCommand(
     "first-extension.deleteSavedName",
     async () => {
-      // Delete the saved name from global state
-      context.globalState.update("userName", undefined);
+      context.globalState.update(STORAGE_KEY, undefined);
       vscode.window.showInformationMessage(
         "Your name has been deleted from the global state."
       );
