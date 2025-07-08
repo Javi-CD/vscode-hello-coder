@@ -1,9 +1,9 @@
-const commandChangeName = require("./changeName");
-const commandDeleteName = require("./deleteName");
-const commandGreet = require("./greet");
+const { registerChangeNameCommand } = require("./changeName");
+const { registerDeleteNameCommand } = require("./deleteName");
+const { registerGreetCommand } = require("./greet");
 
 module.exports = {
-  commandChangeName,
-  commandDeleteName,
-  commandGreet,
+  registerChangeNameCommand,
+  registerDeleteNameCommand,
+  registerGreetCommand,
 };

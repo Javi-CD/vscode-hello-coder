@@ -1,10 +1,10 @@
 const vscode = require("vscode");
 const STORAGE_KEY = require("./src/utils/constants");
 const {
-  commandChangeName,
-  commandDeleteName,
-  commandGreet,
-} = require("./src/commands/");
+  registerChangeNameCommand,
+  registerDeleteNameCommand,
+  registerGreetCommand,
+} = require("./src/commands");
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -32,9 +32,9 @@ const activate = (context) => {
   }
 
   context.subscriptions.push(
-    commandGreet,
-    commandDeleteName,
-    commandChangeName
+    registerGreetCommand(context),
+    registerChangeNameCommand(context),
+    registerDeleteNameCommand(context)
   );
 };
 
