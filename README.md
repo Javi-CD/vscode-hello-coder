@@ -91,7 +91,7 @@ code --install-extension first-extension
 
 ### Project Structure
 
-```
+```yaml
 first-extension/
 ├── src/
 │   ├── commands/
@@ -113,7 +113,7 @@ first-extension/
 
 ```bash
 # Clone the repository
-git clone [https://github.com/Javi-CD/vscode-hello-coder]
+git clone https://github.com/Javi-CD/vscode-hello-coder
 cd vscode-hello-coder
 
 # Install dependencies
