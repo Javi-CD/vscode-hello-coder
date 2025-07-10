@@ -1,7 +1,7 @@
-# First Extension - Your Personal VS Code Assistant
 
 <div align="center">
-    _A simple yet powerful extension that greets you and remembers your name_
+    <h1>Your partner in Vscode</h1>
+    <i>A simple yet powerful extension that greets you and remembers your name</i>
 
 </div>
 
@@ -9,7 +9,7 @@
 
 ## What does this extension do?
 
-**First Extension** is your personal companion in VS Code that:
+**Hello Coder** is your personal parther in VS Code that:
 
 - Greets you every time you open the editor
 - Remembers your name between sessions
@@ -22,7 +22,7 @@
 
 ![Extension Screenshot](./public/screenshot.png)
 
-_First Extension interface showing the greeting functionality_
+_Hello Coder interface showing the greeting functionality_
 
 </div>
 
@@ -34,7 +34,7 @@ _First Extension interface showing the greeting functionality_
 
 ```bash
 # Coming soon to the official marketplace
-code --install-extension first-extension
+code --install-extension hello-coder
 ```
 
 ### Method 2: Manual Installation
