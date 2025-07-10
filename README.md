@@ -151,6 +151,8 @@ npm run lint
 - Easy personal data deletion
 - Open source and auditable code
 
+For more information you can read the file [SECURITY.md](./SECURITY.md)
+
 ---
 
 ## Contributing
