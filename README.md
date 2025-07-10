@@ -102,7 +102,6 @@ first-extension/
 │   └── utils/
 │       └── constants.js     # Global constants
 ├── public/
-│   ├── film.mp4             # Demo video
 │   └── screenshot.png       # Extension screenshot
 ├── extension.js             # Entry point
 ├── package.json             # Configuration
@@ -171,9 +170,7 @@ Found a problem? [Create an issue](https://github.com/Javi-CD/vscode-hello-coder
 
 ## Support and Contact
 
-### Need Help?
-
-- [Direct Contact](javierperezdeveloper@gmail.com)
+- javierperezdeveloper@gmail.com
 - [GitHub](https://github.com/Javi-CD/)
 
 ---
