@@ -37,7 +37,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 2. **Clone your fork**
 
    ```bash
-   git clone https://github.com/your-username/vscode-hello-coder.git
+   git clone https://github.com/Javi-CD/vscode-hello-coder.git
    cd vscode-hello-coder
    ```
 
